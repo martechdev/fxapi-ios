@@ -14,3 +14,14 @@ import Fxapi
 let client = FxApiClient(configuration: .init(apiKey: "YOUR_API_KEY"))
 let latest = try await client.latest(["base": "USD", "symbols": "EUR,GBP"]) 
 ```
+
+## Examples
+
+### Daily job to fetch rates
+```swift
+let pairs = ["EUR,GBP", "JPY,CAD"]
+for p in pairs {
+  let res = try await client.latest(["base": "USD", "symbols": p])
+  print(res)
+}
+```
